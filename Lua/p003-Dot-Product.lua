@@ -2,14 +2,14 @@ local Matrix = {}
 Matrix.__index = Matrix
 
 -- Constructors {
-function Matrix.new(rows: number, cols: number, value: number?)
+function Matrix.new(rows, cols, value)
 	local fillValue = value or 0
 	local mat = table.create(rows, table.create(cols, fillValue))
 	setmetatable(mat, Matrix)
 	return mat
 end
 
-function Matrix.from1DArray(arr: {[number]: number})
+function Matrix.from1DArray(arr)
 	local rows, cols = #arr, 1
 	local mat = {}
 	for i = 1, rows do
@@ -22,7 +22,7 @@ function Matrix.from1DArray(arr: {[number]: number})
 	return mat	
 end
 
-function Matrix.from2DArray(arr: {[number]: {[number]: number}})
+function Matrix.from2DArray(arr)
 	local rows, cols = #arr, #arr[1]
 	local mat = {}
 	for i = 1, rows do
